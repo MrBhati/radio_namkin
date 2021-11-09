@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
 import 'package:radioapp/components/mini_player.dart';
@@ -24,16 +25,171 @@ class _AppState extends State<App> with AutomaticKeepAliveClientMixin<App> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'More Applications',
-              style: TextStyle(fontSize: 30),
-            ),
-           Column(
-             children: [
-                MiniPlayer(widget.mainTabBaseModel),
-            SizedBox(height: 50,)
-             ],
-           )
+              Expanded( 
+             flex: 5,
+             child: SingleChildScrollView(
+               child: Column(
+                 children: [
+                    Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                   Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+                              Text(
+                    'More Applications',
+                    style: TextStyle(fontSize: 30),
+                             ),
+
+                 ],
+               ),
+             ),),
+           Expanded( 
+             flex: 1,
+             child: Container(
+               color:Colors.pink,
+               child: Column(
+                 children: [
+                    MiniPlayer(widget.mainTabBaseModel),
+                SizedBox(height: 50,)
+                 ],
+               ),
+             ),
+           ),
           ],
         ),
       );

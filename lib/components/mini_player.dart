@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
 import 'package:radioapp/res/colors_constant.dart';
 import 'package:radioapp/screens/apps.dart';
+import 'package:radioapp/services/color_singletion.dart';
 
 class MiniPlayer extends StatefulWidget {
   final MainTabBaseModel? mainTabBaseModel;
@@ -22,7 +23,7 @@ class _MiniPlayerState extends State<MiniPlayer>{
   Widget build(BuildContext context) {
     print('build Apps');
     return Container(
-      color: AppColors.primery_color,
+      color: ColorSingletion.instance!.colorBackground,
       height: 60,
       width: double.infinity,
      child: Row(
@@ -45,7 +46,7 @@ return  Container(
                 width: 80,
                        decoration: BoxDecoration(
                          
-                  color: AppColors.primery_color,
+                  color: ColorSingletion.instance!.colorBackground,
                   shape: BoxShape.circle
                 ),
                 child:  playing ? IconButton(

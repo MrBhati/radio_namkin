@@ -11,6 +11,7 @@ import 'package:radioapp/screens/apps.dart';
 import 'package:radioapp/screens/news.dart';
 import 'package:radioapp/screens/player.dart';
 import 'package:radioapp/screens/setting.dart';
+import 'package:radioapp/services/color_singletion.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MainTabs extends StatelessWidget {
@@ -25,7 +26,7 @@ class MainTabs extends StatelessWidget {
           length: 5,
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: AppColors.primery_color,
+              backgroundColor: ColorSingletion.instance!.colorBackground,
               title: Text("Radio Mastan "),
               actions: [
                 // action button
@@ -61,9 +62,9 @@ class MainTabs extends StatelessWidget {
                 TabBarView(
                   children: [
                     App(data),
-                    About(data),
-                    Player(data),
                     News(data),
+                    Player(data),
+                    About(data),
                     Setting(data)
                   ],
                 ),
@@ -135,12 +136,12 @@ class MainTabs extends StatelessWidget {
 
   Widget menu() {
     return Container(
-      color: AppColors.primery_color,
+      color: ColorSingletion.instance!.colorBackground,
       child: TabBar(
         labelColor: Colors.white,
         unselectedLabelColor: Colors.white70,
         indicatorSize: TabBarIndicatorSize.tab,
-       // indicatorPadding: EdgeInsets.all(5.0),
+        // indicatorPadding: EdgeInsets.all(5.0),
         indicatorColor: Colors.blue,
         tabs: [
           Tab(

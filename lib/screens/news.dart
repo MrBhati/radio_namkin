@@ -19,20 +19,58 @@ class _NewsState extends State<News> with AutomaticKeepAliveClientMixin<News> {
   @override
   Widget build(BuildContext context) {
     print('build News');
-    return Center(
+ return Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'All news App',
-              style: TextStyle(fontSize: 30),
-            ),
-           Column(
-             children: [
-                MiniPlayer(widget.mainTabBaseModel),
-            SizedBox(height: 50,)
-             ],
-           )
+              Expanded( 
+             flex: 5,
+             child: SingleChildScrollView(
+               child: Column(
+                 children: [
+                 Container(
+                   height: 600,
+                   child: GridView.count(
+  // Create a grid with 2 columns. If you change the scrollDirection to
+  // horizontal, this produces 2 rows.
+  crossAxisCount: 2,
+  // Generate 100 widgets that display their index in the List.
+  children: List.generate(100, (index) {
+    return Center(
+      child: Card(
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(40), // if you need this
+    side: BorderSide(
+      color: Colors.grey.withOpacity(0.2),
+      width: 1,
+    ),
+  ),
+  child: Container(
+    color: Colors.white,
+    width: 200,
+    height: 200,
+  ),
+),
+    );
+  }),
+),
+                 ),
+
+                 ],
+               ),
+             ),),
+           Expanded( 
+             flex: 1,
+             child: Container(
+               color:Colors.pink,
+               child: Column(
+                 children: [
+                    MiniPlayer(widget.mainTabBaseModel),
+                SizedBox(height: 50,)
+                 ],
+               ),
+             ),
+           ),
           ],
         ),
       );
