@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
 import 'package:radioapp/components/mini_player.dart';
+import 'package:radioapp/model/colors_model.dart';
 import 'package:radioapp/services/color_singletion.dart';
 
 class Setting extends StatefulWidget {
@@ -12,6 +13,8 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> with AutomaticKeepAliveClientMixin<Setting> {
+
+
   @override
   void initState() {
     super.initState();
@@ -23,6 +26,7 @@ class _SettingState extends State<Setting> with AutomaticKeepAliveClientMixin<Se
     print('build Setting');
    return Container(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
               Expanded( 
@@ -31,149 +35,32 @@ class _SettingState extends State<Setting> with AutomaticKeepAliveClientMixin<Se
                child: Column(
                  children: [
                     Text(
-                    'More Applications',
+                    'Change Color theam',
                     style: TextStyle(fontSize: 30),
                              ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                   Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
+                               Container(
+                                 height: 200,
+                                 child: GridView.builder(
+                  itemCount: widget.mainTabBaseModel!.colorsList.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 7),
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: (){
+                        widget.mainTabBaseModel!.updateColor(widget.mainTabBaseModel!.colorsList[index],index);
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        height: 20,
+                        width: 20,
+                        color: widget.mainTabBaseModel!.colorsList[index].primeryColor,
+                        child: widget.mainTabBaseModel!.selectedIndex == index ? Center(child: Icon(Icons.check, color: Colors.white,size: 30,),): SizedBox(),
+                      ),
+                    );
+                
+                  },
+                ),
+                               ),
 
                  ],
                ),

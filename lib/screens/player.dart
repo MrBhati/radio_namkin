@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
 
 import 'package:radioapp/res/colors_constant.dart';
+import 'package:radioapp/services/color_singletion.dart';
 class Player extends StatefulWidget {
   final MainTabBaseModel? mainTabBaseModel;
   Player(this.mainTabBaseModel);
@@ -30,7 +31,7 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
             Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: AppColors.primery_color,
+                color: ColorSingletion.instance!.colorBackground,
                 shape: BoxShape.circle
               ),
               child: CircleAvatar(
@@ -57,7 +58,7 @@ return  Padding(
                  children: [
                    Container(
                        decoration: BoxDecoration(
-                  color: AppColors.primery_color,
+                  color: ColorSingletion.instance!.colorBackground,
                   shape: BoxShape.circle
                 ),
                 child:  IconButton(
@@ -66,7 +67,7 @@ return  Padding(
             ),),
             Container(
                        decoration: BoxDecoration(
-                  color: AppColors.primery_color,
+                  color: ColorSingletion.instance!.colorBackground,
                   shape: BoxShape.circle
                 ),
                 child:  IconButton(
@@ -80,7 +81,7 @@ return  Padding(
                 width: 80,
                        decoration: BoxDecoration(
                          
-                  color: AppColors.primery_color,
+                  color: ColorSingletion.instance!.colorBackground,
                   shape: BoxShape.circle
                 ),
                 child:  playing ? IconButton(
@@ -94,7 +95,7 @@ return  Padding(
             ),),
             Container(
                        decoration: BoxDecoration(
-                  color: AppColors.primery_color,
+                  color: ColorSingletion.instance!.colorBackground,
                   shape: BoxShape.circle
                 ),
                 child:  IconButton(
@@ -103,7 +104,7 @@ return  Padding(
             ),),
             Container(
                        decoration: BoxDecoration(
-                  color: AppColors.primery_color,
+                  color: ColorSingletion.instance!.colorBackground,
                   shape: BoxShape.circle
                 ),
                 child:  IconButton(

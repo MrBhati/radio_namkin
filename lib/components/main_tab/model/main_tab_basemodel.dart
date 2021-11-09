@@ -1,6 +1,7 @@
 
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:radioapp/model/colors_model.dart';
 import 'package:radioapp/model/media_state.dart';
 import 'package:radioapp/services/audio_play_handler.dart';
 import 'package:radioapp/services/color_singletion.dart';
@@ -9,10 +10,23 @@ import 'package:rxdart/rxdart.dart';
 class MainTabBaseModel extends ChangeNotifier{
   final BuildContext? context;
 
-    String background = "#B7C8DB",
-      dark = "#9caaba",
-      light = "#d2e6fc",
-      text = "1E364B";
+
+//varables for setting
+int selectedIndex = 0;
+  List<ColorsModel> colorsList =[
+    ColorsModel(primeryColor: Color(0xff01AD1E), secondaryColor: Color(0xff), assetColor: Color(0xff),isSelected: true),
+    ColorsModel(primeryColor: Color(0xffD4DB04), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xff04DB5F), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xff04DBC7), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xff0497DB), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xff0445DB), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xff3F04DB), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xff7904DB), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xffC704DB), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xffDB0497), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+    ColorsModel(primeryColor: Color(0xffDB0404), secondaryColor: Color(0xff), assetColor: Color(0xff)),
+  ];
+
    MainTabBaseModel({this.context}){
       print('Main tab inside');
      setupPlayer();
@@ -24,12 +38,13 @@ class MainTabBaseModel extends ChangeNotifier{
        
    }
  AudioHandler? audioHandler;
-changeColor(){
+updateColor(ColorsModel colorsList, int index){
     print("Change colors");
-                      ColorSingletion.instance!.colorBackground = Color(0xff4d54d1);
-      ColorSingletion.instance!.colorDark = Color(0xfffa532b);
-      ColorSingletion.instance!.colorLight = Color(0xff0bc144);
-      ColorSingletion.instance!.colorText = Color(0xffff1388);
+                      ColorSingletion.instance!.colorBackground = colorsList.primeryColor;
+      ColorSingletion.instance!.colorDark = colorsList.secondaryColor;
+      ColorSingletion.instance!.colorLight = colorsList.secondaryColor;
+      ColorSingletion.instance!.colorText = colorsList.assetColor;
+      selectedIndex = index;
       notifyListeners();
 }
 
@@ -60,6 +75,8 @@ bool isPlaying =true;
      isPlaying = !isPlaying;
      notifyListeners();
    }
+
+
 
 
 }
