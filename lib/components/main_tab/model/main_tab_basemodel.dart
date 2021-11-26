@@ -1,6 +1,8 @@
 
 import 'package:audio_service/audio_service.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:radioapp/model/ads_mobbs.dart';
 import 'package:radioapp/model/colors_model.dart';
 import 'package:radioapp/model/media_state.dart';
 import 'package:radioapp/services/audio_play_handler.dart';
@@ -13,6 +15,7 @@ class MainTabBaseModel extends ChangeNotifier{
 
 //varables for setting
 int selectedIndex = 0;
+ List<AdsMobbs> adsMobbs = [];
   List<ColorsModel> colorsList =[
     ColorsModel(primeryColor: Color(0xff01AD1E), secondaryColor: Color(0xff), assetColor: Color(0xff),isSelected: true),
     ColorsModel(primeryColor: Color(0xffD4DB04), secondaryColor: Color(0xff), assetColor: Color(0xff)),
@@ -29,6 +32,7 @@ int selectedIndex = 0;
 
    MainTabBaseModel({this.context}){
       print('Main tab inside');
+      apiCall();
      setupPlayer();
      ColorSingletion(
           colorBackground: Color(0xff0303e5),
@@ -58,8 +62,32 @@ updateColor(ColorsModel colorsList, int index){
       androidNotificationOngoing: true,
     ),
   );
+
   notifyListeners();
  }
+
+  void apiCall() async {
+  var dio = Dio();
+  final response = await dio.post('http://fm.riggrodigital.com/radionamkin/api/public/getAdsMobbs',
+    data: {"currentTime": 2021-11-12, "adminId": 1},
+              options: Options(
+                headers: {
+                  "Accept": "application/json",
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+              )
+  
+  );
+ 
+
+       var dataResponse = response.data as List;
+       adsMobbs = dataResponse.map((e) => AdsMobbs.fromJson(e)).toList();
+
+       print("Number of Adds" + adsMobbs.length.toString());
+
+  print(response.data);
+                
+}
 
   /// A stream reporting the combined state of the current media item and its
   /// current position.

@@ -1,4 +1,5 @@
 import 'package:audio_service/audio_service.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
@@ -7,6 +8,7 @@ import 'package:radioapp/res/colors_constant.dart';
 import 'package:radioapp/services/color_singletion.dart';
 class Player extends StatefulWidget {
   final MainTabBaseModel? mainTabBaseModel;
+ 
   Player(this.mainTabBaseModel);
 
   @override
@@ -14,6 +16,13 @@ class Player extends StatefulWidget {
 }
 
 class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Player> {
+   final List<String> imagesList = [
+    'https://cdn-profiles.tunein.com/s302082/images/logod.png',
+    'https://mdbootstrap.com/img/new/slides/041.jpg',
+    'https://mdbootstrap.com/img/new/slides/042.jpg',
+    'https://mdbootstrap.com/img/new/slides/043.jpg',
+    'https://mdbootstrap.com/img/new/slides/044.jpg',
+  ];
   @override
   void initState() {
     super.initState();
@@ -28,7 +37,18 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+           
+
+            CarouselSlider(
+        options: CarouselOptions(
+        aspectRatio: 30 / 9,
+          autoPlay: true,
+        ),
+        items: this.imagesList
+            .map(
+              (item,) => Center(
+              
+                child: imagesList.indexOf(item)  == 0 ? Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: ColorSingletion.instance!.colorBackground,
@@ -37,10 +57,16 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
               child: CircleAvatar(
                 backgroundColor: Colors.white,
                 radius: 120,
-                backgroundImage: AssetImage(
-                            "assets/images/mainicon.png"),
+               backgroundImage: NetworkImage(item),
+              )): Image.network(
+                  item,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
+            )
+            .toList(),
+      ),
+            
             SizedBox(height: 50,),
             Image(image: AssetImage('assets/images/wave.png')),
              SizedBox(height: 20,),
