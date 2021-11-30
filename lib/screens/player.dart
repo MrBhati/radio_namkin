@@ -18,10 +18,10 @@ class Player extends StatefulWidget {
 class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Player> {
    final List<String> imagesList = [
     'https://cdn-profiles.tunein.com/s302082/images/logod.png',
-    'https://mdbootstrap.com/img/new/slides/041.jpg',
-    'https://mdbootstrap.com/img/new/slides/042.jpg',
-    'https://mdbootstrap.com/img/new/slides/043.jpg',
-    'https://mdbootstrap.com/img/new/slides/044.jpg',
+    'http://fm.riggrodigital.com/admob/system/static/uploads/banner/a4C3rGUr.jpg',
+    'http://fm.riggrodigital.com/admob/system/static/uploads/banner/Ufn5X2VF.png',
+    'http://fm.riggrodigital.com/admob/system/static/uploads/banner/r5d9jNjU.jpg',
+    'http://fm.riggrodigital.com/admob/system/static/uploads/banner/CF3ThVmN.png',
   ];
   @override
   void initState() {
@@ -41,7 +41,7 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
 
             CarouselSlider(
         options: CarouselOptions(
-        aspectRatio: 30 / 9,
+        aspectRatio: 20 / 9,
           autoPlay: true,
         ),
         items: this.imagesList
@@ -49,6 +49,8 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
               (item,) => Center(
               
                 child: imagesList.indexOf(item)  == 0 ? Container(
+                  height: 600,
+                  width: 600,
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: ColorSingletion.instance!.colorBackground,
@@ -58,10 +60,14 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
                 backgroundColor: Colors.white,
                 radius: 120,
                backgroundImage: NetworkImage(item),
-              )): Image.network(
-                  item,
-                  fit: BoxFit.cover,
-                ),
+              )): Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Image.network(
+                    item,
+                    height: 1000,
+                    fit: BoxFit.cover,
+                  ),
+              ),
               ),
             )
             .toList(),

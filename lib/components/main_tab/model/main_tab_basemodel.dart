@@ -67,26 +67,33 @@ updateColor(ColorsModel colorsList, int index){
  }
 
   void apiCall() async {
-  var dio = Dio();
-  final response = await dio.post('http://fm.riggrodigital.com/radionamkin/api/public/getAdsMobbs',
-    data: {"currentTime": 2021-11-12, "adminId": 1},
-              options: Options(
-                headers: {
-                  "Accept": "application/json",
-                  "Content-Type": "application/x-www-form-urlencoded"
-                },
-              )
+  // var dio = Dio();
+  try {
+  // final response = await dio.post('http://fm.riggrodigital.com/radionamkin/api/public/getAdsMobbs',
+  //   data: {"currentTime": "2021-11-12", "adminId": 2},
+  //             options: Options(
+  //               headers: {
+  //                 "Accept": "application/json",
+  //                 "Content-Type": "application/x-www-form-urlencoded"
+  //               },
+  //             )
   
-  );
+  // );
+  Response response;
+var dio = Dio();
+  response = await dio.post('http://fm.riggrodigital.com/radionamkin/api/public/getAdsMobbs', 
+  data: {'currentTime': "2021-11-12", 'adminId': 1});
  
-
-       var dataResponse = response.data as List;
+print(response.data);
+      var dataResponse = response.data as List;
        adsMobbs = dataResponse.map((e) => AdsMobbs.fromJson(e)).toList();
 
        print("Number of Adds" + adsMobbs.length.toString());
 
   print(response.data);
-                
+  }catch(e){
+print(e.toString());
+  }              
 }
 
   /// A stream reporting the combined state of the current media item and its

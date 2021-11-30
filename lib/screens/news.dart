@@ -24,7 +24,7 @@ class _NewsState extends State<News> with AutomaticKeepAliveClientMixin<News> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
               Expanded( 
-             flex: 5,
+             flex: 6,
              child: SingleChildScrollView(
                child: Column(
                  children: [
@@ -60,7 +60,7 @@ class _NewsState extends State<News> with AutomaticKeepAliveClientMixin<News> {
                ),
              ),),
            Expanded( 
-             flex: 1,
+             flex: 2,
              child: Container(
                color:Colors.pink,
                child: Column(
