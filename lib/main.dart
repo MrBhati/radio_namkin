@@ -22,8 +22,10 @@ import 'dart:async';
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
+import 'package:radioapp/components/admob_helper.dart';
 import 'package:radioapp/components/main_tab/main_tab.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:radioapp/common.dart';
@@ -37,6 +39,8 @@ import 'components/main_tab/model/main_tab_basemodel.dart';
 // late AudioHandler audioHandler;
 
 Future<void> main() async {
+ WidgetsFlutterBinding.ensureInitialized();
+ AdmobHelper.initialize();
   // audioHandler = await AudioService.init(
   //   builder: () => AudioPlayerHandler(),
   //   config: const AudioServiceConfig(

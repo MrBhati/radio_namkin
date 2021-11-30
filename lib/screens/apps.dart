@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:radioapp/components/admob_helper.dart';
+
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
 import 'package:radioapp/components/mini_player.dart';
 
@@ -26,170 +29,169 @@ class _AppState extends State<App> with AutomaticKeepAliveClientMixin<App> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
               Expanded( 
-             flex: 5,
+             flex: 7,
              child: SingleChildScrollView(
                child: Column(
-                 children: [
-                    Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                   Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
-                              Text(
-                    'More Applications',
-                    style: TextStyle(fontSize: 30),
-                             ),
+                children:[ ]
+               ),
+              //  child: Column(
+              //    children: [
+              //       Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //      Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
+              //                 Text(
+              //       'More Applications',
+              //       style: TextStyle(fontSize: 30),
+              //                ),
 
-                 ],
-               ),
+              //    ],
+              //  ),
              ),),
-           Expanded( 
-             flex: 1,
-             child: Container(
-               color:Colors.pink,
-               child: Column(
-                 children: [
-                    MiniPlayer(widget.mainTabBaseModel),
-                SizedBox(height: 50,)
-                 ],
-               ),
-             ),
-           ),
+            MiniPlayer(widget.mainTabBaseModel),
+           Container(
+        child: AdWidget(
+          ad: AdmobHelper.getBannerAd()..load(),
+          key: UniqueKey(),
+        ),
+        height: 50,
+      ),
           ],
         ),
       );

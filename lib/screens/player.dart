@@ -2,7 +2,11 @@ import 'package:audio_service/audio_service.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:radioapp/components/admob_helper.dart';
+import 'package:radioapp/components/banner_add.dart';
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
+import 'package:radioapp/components/mini_player.dart';
 
 import 'package:radioapp/res/colors_constant.dart';
 import 'package:radioapp/services/color_singletion.dart';
@@ -169,7 +173,14 @@ return  Padding(
             
               },
             ),
-             SizedBox(height: 40,),
+      //      Container(
+      //   child: AdWidget(
+      //     ad: AdmobHelper.getBannerAd()..load(),
+      //     key: UniqueKey(),
+      //   ),
+      //   height: 50,
+      // ),
+           
 
             //  Padding(
             //    padding: const EdgeInsets.symmetric(horizontal: 40),
