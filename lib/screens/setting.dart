@@ -28,7 +28,7 @@ class _SettingState extends State<Setting> with AutomaticKeepAliveClientMixin<Se
     print('build Setting');
    return Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
               Expanded(
@@ -36,10 +36,23 @@ class _SettingState extends State<Setting> with AutomaticKeepAliveClientMixin<Se
              child: SingleChildScrollView(
                child: Column(
                  children: [
-                    Text(
-                    'Change Color theam',
-                    style: TextStyle(fontSize: 30),
-                             ),
+                   SizedBox(
+                     height: 20,
+                   ),
+                    Container(
+                      width: double.infinity,
+                      child: Center(
+                        child: Text(
+                        'Change Color theam',
+                        
+                        style: TextStyle(fontSize: 30,
+                        color: Colors.white),
+                                 ),
+                      ),
+                    ),
+                     SizedBox(
+                     height: 20,
+                   ),
                                Container(
                                  height: 200,
                                  child: GridView.builder(

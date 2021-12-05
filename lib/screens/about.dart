@@ -41,6 +41,7 @@ class _AboutState extends State<About>
     // );
 
      return Container(
+       color: Colors.black.withOpacity(0.4),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -70,16 +71,18 @@ class _AboutState extends State<About>
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(20),
             child: Text(
               "Radio Namkeen- Ek Dum Zabardast- The #1 radio FM online to listen to old Hindi audio Bollywood Songs. This online radio station plays rare & revival old romantic love songs in the 70s, 80s & 90s. Listen to Premium handpicked old Hindi Bollywood super Hits & Golden Classic songs in True Dolby HD Stereo!  old Hindi Bollywood super Hits & Radio Namkeen- Ek Dum Zabardast- The #1 radio FM online to listen to old Hindi audio Bollywood Songs. This online radio station plays rare & revival old romantic love songs in the 70s, 80s & 90s.  in True Dolby HD Stereo! Radio Namkeen- Ek Dum Zabardast- The #1 radio FM online to listen to old Hindi audio Bollywood Songs. Listen to Premium handpicked old Hindi Bollywood super Hits & Golden Classic songs in True Dolby HD Stereo!",
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18,
+              color: Colors.white54),
             ),
           ),
           Text(
             'Find Us On ',
             style: TextStyle(fontSize: 20, color: Colors.white),
           ),
+          SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -104,17 +107,18 @@ class _AboutState extends State<About>
                 width: 40,
               ),
               Image(
-                image: AssetImage('assets/images/website.png'),
+                image: AssetImage('assets/images/web.png'),
                 height: 40,
                 width: 40,
               ),
               Image(
-                image: AssetImage('assets/images/images.png'),
+                image: AssetImage('assets/images/chat.png'),
                 height: 40,
                 width: 40,
               ),
             ],
           ),
+          SizedBox(height: 20,)
 
                  ],
                ),
