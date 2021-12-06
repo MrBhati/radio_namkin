@@ -43,7 +43,7 @@ class _SettingState extends State<Setting> with AutomaticKeepAliveClientMixin<Se
                       width: double.infinity,
                       child: Center(
                         child: Text(
-                        'Change Color theam',
+                        'Customize color theme',
                         
                         style: TextStyle(fontSize: 30,
                         color: Colors.white),

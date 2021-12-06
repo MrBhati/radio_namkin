@@ -99,7 +99,11 @@ return  Padding(
                 ),
                 child:  IconButton(
                 icon: Icon( Icons.favorite_border , color: Colors.white,),
-                onPressed: () { },
+                onPressed: () { 
+                  const url =
+                                        'https://play.google.com/store/apps/collection/cluster?clp=igM4ChkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDEhkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDGAA%3D:S:ANO1ljK1U0E&gsr=CjuKAzgKGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMSGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMYAA%3D%3D:S:ANO1ljLG5c0&hl=en_IN&gl=US';
+                                    widget.mainTabBaseModel!.launchURL(url);
+                },
             ),),
             Container(
                        decoration: BoxDecoration(
@@ -145,7 +149,9 @@ return  Padding(
                 ),
                 child:  IconButton(
                 icon: Icon( Icons.share , color: Colors.white,),
-                onPressed: () { },
+                onPressed: () {
+                  widget.mainTabBaseModel!.share();
+                 },
             ),)
             
                  ],

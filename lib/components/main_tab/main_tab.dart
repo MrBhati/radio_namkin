@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
 import 'package:radioapp/model/media_state.dart';
@@ -32,12 +34,71 @@ class MainTabs extends StatelessWidget {
                 // action button
                 IconButton(
                   icon: Icon(Icons.share),
-                  onPressed: () {},
+                  onPressed: () {
+                    data.share();
+                  },
                 ),
                 IconButton(
-                  icon: Icon(Icons.menu),
-                  onPressed: () {},
-                ),
+                    icon: Icon(Icons.menu),
+                    onPressed: () {
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                ListTile(
+                                  leading: new Icon(Icons.lock),
+                                  title: new Text('Privacy policy'),
+                                  onTap: () {
+                                    const url =
+                                        'https://www.riggrodigital.com/privacy-policy.html/';
+                                    data.launchURL(url);
+                                  },
+                                ),
+                                ListTile(
+                                  leading: new Icon(Icons.thumb_up),
+                                  title: new Text('Rate this app'),
+                                  onTap: () {
+                                    const url =
+                                        'https://play.google.com/store/apps/collection/cluster?clp=igM4ChkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDEhkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDGAA%3D:S:ANO1ljK1U0E&gsr=CjuKAzgKGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMSGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMYAA%3D%3D:S:ANO1ljLG5c0&hl=en_IN&gl=US';
+                                    data.launchURL(url);
+                                  },
+                                ),
+                                ListTile(
+                                  leading: new Icon(Icons.share),
+                                  title: new Text('Share ths app'),
+                                  onTap: () {
+                                   data.share();
+                                  },
+                                ),
+                                ListTile(
+                                  leading: new Icon(Icons.close),
+                                  title: new Text('Exit'),
+                                  onTap: () {
+                                     if (Platform.isIOS) {
+
+        try {
+          exit(0); 
+        } catch (e) {
+          SystemNavigator.pop(); // for IOS, not true this, you can make comment this :)
+        }
+
+      } else {
+
+        try {
+          SystemNavigator.pop(); // sometimes it cant exit app  
+        } catch (e) {
+          exit(0); // so i am giving crash to app ... sad :(
+        }
+
+      }
+                                  },
+                                ),
+                              ],
+                            );
+                          });
+                    }),
               ],
             ),
             bottomNavigationBar: menu(),
