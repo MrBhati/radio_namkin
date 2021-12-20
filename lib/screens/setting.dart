@@ -86,7 +86,7 @@ class _SettingState extends State<Setting> with AutomaticKeepAliveClientMixin<Se
           ad: AdmobHelper.getBannerAd()..load(),
           key: UniqueKey(),
         ),
-        height: 50,
+        height: 60,
       ),
           ],
         ),

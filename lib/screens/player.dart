@@ -40,7 +40,8 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-           // mainAxisAlignment: MainAxisAlignment.center,
+
+           mainAxisAlignment: MainAxisAlignment.end,
             children: [
              
         
@@ -55,20 +56,21 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
               .map(
                 (item,) => Center(
                 
-                  child: imagesList.indexOf(item)  == 0 ? Container(
-                    height: 400,
-                    width: 400,
-                padding: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  color: ColorSingletion.instance!.colorBackground,
-                  shape: BoxShape.circle
-                ),
-                child: CircleAvatar(
+                //   child: imagesList.indexOf(item)  == 0 ? Container(
+                //     height: 400,
+                //     width: 400,
+                // padding: EdgeInsets.all(5),
+                // decoration: BoxDecoration(
+                //   color: ColorSingletion.instance!.colorBackground,
+                //   shape: BoxShape.circle
+                // ),
+                // child: CircleAvatar(
                   
-                  backgroundColor: Colors.white,
-                  radius: 120,
-                 backgroundImage: NetworkImage(item),
-                )): Padding(
+                //   backgroundColor: Colors.white,
+                //   radius: 120,
+                //  backgroundImage: NetworkImage(item),
+                // )): 
+                 child:Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Image.network(
                       item,
@@ -170,7 +172,7 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
               ),
         
               
-                SizedBox(height: 10,),
+                SizedBox(height: 20,),
                if(widget.mainTabBaseModel!.audioHandler != null)
                   StreamBuilder<AudioProcessingState>(
                 stream: widget.mainTabBaseModel!.audioHandler!.playbackState
@@ -256,6 +258,14 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
               //      ],
               //    ),
               //  )
+               SizedBox(height: 20,),
+                    Container(
+        child: AdWidget(
+          ad: AdmobHelper.getBannerAd()..load(),
+          key: UniqueKey(),
+        ),
+        height: 60,
+      ),
             ],
           ),
         )

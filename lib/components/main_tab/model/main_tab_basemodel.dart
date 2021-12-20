@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:audio_service/audio_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -136,7 +138,7 @@ class MainTabBaseModel extends ChangeNotifier {
           data: {'currentTime': "2021-11-12", 'adminId': 1});
 
       print(response.data);
-      var dataResponse = response.data as List;
+      var dataResponse = jsonDecode(response.data) as List;
       adsMobbs = dataResponse.map((e) => AdsMobbs.fromJson(e)).toList();
 
       print("Number of Adds" + adsMobbs.length.toString());

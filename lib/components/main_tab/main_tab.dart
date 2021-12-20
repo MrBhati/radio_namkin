@@ -111,13 +111,13 @@ class MainTabs extends StatelessWidget {
                           image: AssetImage("assets/images/bg.png"),
                           fit: BoxFit.cover),
                     ),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
+                    // child: BackdropFilter(
+                    //   filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
                       child: Container(
                         alignment: Alignment.center,
                         color: Colors.black.withOpacity(0.1),
                       ),
-                    ),
+                    // ),
                   ),
                 ),
                 TabBarView(

@@ -168,7 +168,7 @@ class _AboutState extends State<About>
               ad: AdmobHelper.getBannerAd()..load(),
               key: UniqueKey(),
             ),
-            height: 50,
+            height: 60,
           ),
         ],
       ),
