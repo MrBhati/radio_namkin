@@ -27,6 +27,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'package:radioapp/components/admob_helper.dart';
 import 'package:radioapp/components/main_tab/main_tab.dart';
+import 'package:radioapp/screens/splash.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:radioapp/common.dart';
 import 'package:radioapp/model/media_state.dart';
@@ -58,9 +59,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // title: 'Audio Service Demo',
       // theme: ThemeData(primarySwatch: Colors.blue),
-      home: ChangeNotifierProvider<MainTabBaseModel>(create: (context) => MainTabBaseModel(context: context),
-      lazy: true, child :MainTabs(),
-    ));
+      home: Splash(),
+    );
   }
 }
 

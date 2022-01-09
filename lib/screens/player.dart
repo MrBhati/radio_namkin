@@ -8,7 +8,7 @@ import 'package:radioapp/components/banner_add.dart';
 import 'package:radioapp/components/main_tab/model/main_tab_basemodel.dart';
 import 'package:radioapp/components/mini_player.dart';
 
-import 'package:radioapp/res/colors_constant.dart';
+
 import 'package:radioapp/services/color_singletion.dart';
 class Player extends StatefulWidget {
   final MainTabBaseModel? mainTabBaseModel;
@@ -41,47 +41,51 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
 
-           mainAxisAlignment: MainAxisAlignment.end,
+           mainAxisAlignment: MainAxisAlignment.start,
             children: [
              
         
-              CarouselSlider(
+              Container(
+                // color: Colors.green,
+                child: CarouselSlider(
           options: CarouselOptions(
+            height: 300,
            
             
-         // aspectRatio: 40 / 40,
+         aspectRatio: 10 / 10,
             autoPlay: true,
           ),
           items: this.imagesList
-              .map(
-                (item,) => Center(
-                
-                //   child: imagesList.indexOf(item)  == 0 ? Container(
-                //     height: 400,
-                //     width: 400,
-                // padding: EdgeInsets.all(5),
-                // decoration: BoxDecoration(
-                //   color: ColorSingletion.instance!.colorBackground,
-                //   shape: BoxShape.circle
-                // ),
-                // child: CircleAvatar(
+                .map(
+                  (item,) => Center(
                   
-                //   backgroundColor: Colors.white,
-                //   radius: 120,
-                //  backgroundImage: NetworkImage(item),
-                // )): 
-                 child:Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Image.network(
-                      item,
-                      width: 5000,
-                      height: 5000,
-                     //fit: BoxFit.cover,
-                    ),
+                  //   child: imagesList.indexOf(item)  == 0 ? Container(
+                  //     height: 400,
+                  //     width: 400,
+                  // padding: EdgeInsets.all(5),
+                  // decoration: BoxDecoration(
+                  //   color: ColorSingletion.instance!.colorBackground,
+                  //   shape: BoxShape.circle
+                  // ),
+                  // child: CircleAvatar(
+                    
+                  //   backgroundColor: Colors.white,
+                  //   radius: 120,
+                  //  backgroundImage: NetworkImage(item),
+                  // )): 
+                   child:Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Image.network(
+                        item,
+                        // width: 5000,
+                        // height: 5000,
+                       //fit: BoxFit.cover,
+                      ),
+                  ),
+                  ),
+                )
+                .toList(),
                 ),
-                ),
-              )
-              .toList(),
               ),
                SizedBox(height: 10,),
               // SizedBox(height: 50,),
@@ -100,12 +104,15 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: [
                      Container(
+                          height: 40,
+                  width: 40,
                          decoration: BoxDecoration(
                     color: ColorSingletion.instance!.colorBackground,
                     shape: BoxShape.circle
                   ),
                   child:  IconButton(
-                  icon: Icon( Icons.favorite_border , color: Colors.white,),
+                  icon: Icon( Icons.favorite_border , color: Colors.white,
+                   size: 25,),
                   onPressed: () { 
                     const url =
                                           'https://play.google.com/store/apps/collection/cluster?clp=igM4ChkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDEhkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDGAA%3D:S:ANO1ljK1U0E&gsr=CjuKAzgKGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMSGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMYAA%3D%3D:S:ANO1ljLG5c0&hl=en_IN&gl=US';
@@ -125,8 +132,8 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
               // ),),
                SizedBox(width: 20,),
               Container(
-                  height: 80,
-                  width: 80,
+                  height: 60,
+                  width: 60,
                          decoration: BoxDecoration(
                            
                     color: ColorSingletion.instance!.colorBackground,
@@ -134,11 +141,11 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
                   ),
                   child:  playing ? IconButton(
                   icon: Icon( Icons.pause , color: Colors.white,
-                  size: 40,),
+                  size: 30,),
                   onPressed: () { widget.mainTabBaseModel!.audioHandler!.pause();},
               ): IconButton(
                   icon: Icon( Icons.play_arrow , color: Colors.white,
-                  size: 40,),
+                  size: 30,),
                   onPressed: () {  widget.mainTabBaseModel!.audioHandler!.play();},
               ),),
               SizedBox(width: 20,),
@@ -153,12 +160,15 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
               // ),),
                 
               Container(
+                        height: 40,
+                  width: 40,
                          decoration: BoxDecoration(
                     color: ColorSingletion.instance!.colorBackground,
                     shape: BoxShape.circle
                   ),
                   child:  IconButton(
-                  icon: Icon( Icons.share , color: Colors.white,),
+                  icon: Icon( Icons.share , color: Colors.white,
+                  size: 25,),
                   onPressed: () {
                     widget.mainTabBaseModel!.share();
                    },
@@ -172,7 +182,7 @@ class _PlayerState extends State<Player> with AutomaticKeepAliveClientMixin<Play
               ),
         
               
-                SizedBox(height: 20,),
+                SizedBox(height: 5,),
                if(widget.mainTabBaseModel!.audioHandler != null)
                   StreamBuilder<AudioProcessingState>(
                 stream: widget.mainTabBaseModel!.audioHandler!.playbackState

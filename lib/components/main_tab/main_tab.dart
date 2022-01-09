@@ -19,122 +19,137 @@ import 'package:rxdart/rxdart.dart';
 class MainTabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //    return ChangeNotifierProvider<MainTabBaseModel>(create: (context) => MainTabBaseModel(context: context),
-    // lazy: true,
-    return Consumer<MainTabBaseModel>(
+       return ChangeNotifierProvider<MainTabBaseModel>(create: (context) => MainTabBaseModel(context: context),
+    lazy: true,
+    child: Consumer<MainTabBaseModel>(
       builder: (context, data, child) {
         return DefaultTabController(
           initialIndex: 2,
           length: 5,
-          child: Scaffold(
-            appBar: AppBar(
-              backgroundColor: ColorSingletion.instance!.colorBackground,
-              title: Text("Radio Mastan "),
-              actions: [
-                // action button
-                IconButton(
-                  icon: Icon(Icons.share),
-                  onPressed: () {
-                    data.share();
-                  },
-                ),
-                IconButton(
-                    icon: Icon(Icons.menu),
+          child: WillPopScope(
+            onWillPop: () async{
+        final timegap = DateTime.now().difference(data.pre_backpress);
+        final cantExit = timegap >= Duration(seconds: 2);
+        data.pre_backpress = DateTime.now();
+        if(cantExit){
+          //show snackbar
+          final snack = SnackBar(content: Text('Press Back button again to Exit'),duration: Duration(seconds: 2),);
+          ScaffoldMessenger.of(context).showSnackBar(snack);
+          return false;
+        }else{
+          return true;
+        }
+      },
+            child: Scaffold(
+              appBar: AppBar(
+                backgroundColor: ColorSingletion.instance!.colorBackground,
+                title: Text("Radio Namkin "),
+                actions: [
+                  // action button
+                  IconButton(
+                    icon: Icon(Icons.share),
                     onPressed: () {
-                      showModalBottomSheet(
-                          context: context,
-                          builder: (context) {
-                            return Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                ListTile(
-                                  leading: new Icon(Icons.lock),
-                                  title: new Text('Privacy policy'),
-                                  onTap: () {
-                                    const url =
-                                        'https://www.riggrodigital.com/privacy-policy.html/';
-                                    data.launchURL(url);
-                                  },
-                                ),
-                                ListTile(
-                                  leading: new Icon(Icons.thumb_up),
-                                  title: new Text('Rate this app'),
-                                  onTap: () {
-                                    const url =
-                                        'https://play.google.com/store/apps/collection/cluster?clp=igM4ChkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDEhkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDGAA%3D:S:ANO1ljK1U0E&gsr=CjuKAzgKGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMSGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMYAA%3D%3D:S:ANO1ljLG5c0&hl=en_IN&gl=US';
-                                    data.launchURL(url);
-                                  },
-                                ),
-                                ListTile(
-                                  leading: new Icon(Icons.share),
-                                  title: new Text('Share ths app'),
-                                  onTap: () {
-                                   data.share();
-                                  },
-                                ),
-                                ListTile(
-                                  leading: new Icon(Icons.close),
-                                  title: new Text('Exit'),
-                                  onTap: () {
-                                     if (Platform.isIOS) {
-
-        try {
-          exit(0); 
-        } catch (e) {
-          SystemNavigator.pop(); // for IOS, not true this, you can make comment this :)
-        }
-
-      } else {
-
-        try {
-          SystemNavigator.pop(); // sometimes it cant exit app  
-        } catch (e) {
-          exit(0); // so i am giving crash to app ... sad :(
-        }
-
-      }
-                                  },
-                                ),
-                              ],
-                            );
-                          });
-                    }),
-              ],
-            ),
-            bottomNavigationBar: menu(),
-            body: Stack(
-              children: [
-                Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/bg.png"),
-                          fit: BoxFit.cover),
-                    ),
-                    // child: BackdropFilter(
-                    //   filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
-                      child: Container(
-                        alignment: Alignment.center,
-                        color: Colors.black.withOpacity(0.1),
-                      ),
-                    // ),
+                      data.share();
+                    },
                   ),
-                ),
-                TabBarView(
-                  children: [
-                    App(data),
-                    News(data),
-                    Player(data),
-                    About(data),
-                    Setting(data)
-                  ],
-                ),
-              ],
+                  IconButton(
+                      icon: Icon(Icons.menu),
+                      onPressed: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  ListTile(
+                                    leading: new Icon(Icons.lock),
+                                    title: new Text('Privacy policy'),
+                                    onTap: () {
+                                      const url =
+                                          'https://www.riggrodigital.com/privacy-policy.html/';
+                                      data.launchURL(url);
+                                    },
+                                  ),
+                                  ListTile(
+                                    leading: new Icon(Icons.thumb_up),
+                                    title: new Text('Rate this app'),
+                                    onTap: () {
+                                      const url =
+                                          'https://play.google.com/store/apps/collection/cluster?clp=igM4ChkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDEhkKEzQ5MTkwODYxNzIzNzI3OTYzNzMQCBgDGAA%3D:S:ANO1ljK1U0E&gsr=CjuKAzgKGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMSGQoTNDkxOTA4NjE3MjM3Mjc5NjM3MxAIGAMYAA%3D%3D:S:ANO1ljLG5c0&hl=en_IN&gl=US';
+                                      data.launchURL(url);
+                                    },
+                                  ),
+                                  ListTile(
+                                    leading: new Icon(Icons.share),
+                                    title: new Text('Share ths app'),
+                                    onTap: () {
+                                     data.share();
+                                    },
+                                  ),
+                                  ListTile(
+                                    leading: new Icon(Icons.close),
+                                    title: new Text('Exit'),
+                                    onTap: () {
+                                       if (Platform.isIOS) {
+          
+                  try {
+            exit(0); 
+                  } catch (e) {
+            SystemNavigator.pop(); // for IOS, not true this, you can make comment this :)
+                  }
+          
+                } else {
+          
+                  try {
+            SystemNavigator.pop(); // sometimes it cant exit app  
+                  } catch (e) {
+            exit(0); // so i am giving crash to app ... sad :(
+                  }
+          
+                }
+                                    },
+                                  ),
+                                ],
+                              );
+                            });
+                      }),
+                ],
+              ),
+              bottomNavigationBar: menu(),
+              body: Stack(
+                children: [
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/bg.png"),
+                            fit: BoxFit.cover),
+                      ),
+                      // child: BackdropFilter(
+                      //   filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
+                        child: Container(
+                          alignment: Alignment.center,
+                          color: Colors.black.withOpacity(0.1),
+                        ),
+                      // ),
+                    ),
+                  ),
+                  TabBarView(
+                    children: [
+                      App(data),
+                      News(data),
+                      Player(data),
+                      About(data),
+                      Setting(data)
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );
       },
-    );
+    ));
     // );
     // return MaterialApp(
     //   home: DefaultTabController(

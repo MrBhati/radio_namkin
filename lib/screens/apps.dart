@@ -26,7 +26,7 @@ class _AppState extends State<App> with AutomaticKeepAliveClientMixin<App> {
   Widget build(BuildContext context) {
     print('build Apps');
     return Container(
-      child: SingleChildScrollView(
+    
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -38,31 +38,28 @@ class _AppState extends State<App> with AutomaticKeepAliveClientMixin<App> {
               },
               child: Expanded(
                 flex: 6,
-                child: SingleChildScrollView(
-                  child: Column(children: [
-                    SizedBox(
-                      height: 20,
+                child: Column(children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Checkout More Radio App's",
+                    style: TextStyle(color: Colors.white, fontSize: 25),
+                  ),
+                  Image(
+                    image: AssetImage('assets/images/moreApps.png'),
+                    // height: 40,
+                    width: double.infinity,
+                  ),
+                  Container(
+                    color: ColorSingletion.instance!.colorBackground,
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    child: Text(
+                      "See More App's",
+                      style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
-                    Text(
-                      "Checkout More Radio App's",
-                      style: TextStyle(color: Colors.white, fontSize: 25),
-                    ),
-                    Image(
-                      image: AssetImage('assets/images/moreApps.png'),
-                      // height: 40,
-                      width: double.infinity,
-                    ),
-                    Container(
-                      color: ColorSingletion.instance!.colorBackground,
-                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      child: Text(
-                        "See More App's",
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                      ),
-                    )
-                  ]),
-                  
-                ),
+                  )
+                ]),
               ),
             ),
             SizedBox(height: 20,),
@@ -76,7 +73,7 @@ class _AppState extends State<App> with AutomaticKeepAliveClientMixin<App> {
             ),
           ],
         ),
-      ),
+     
     );
   }
 

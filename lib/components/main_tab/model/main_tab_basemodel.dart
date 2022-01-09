@@ -16,6 +16,7 @@ class MainTabBaseModel extends ChangeNotifier {
   final BuildContext? context;
 
 //varables for setting
+DateTime pre_backpress = DateTime.now();
   int selectedIndex = 0;
   List<AdsMobbs> adsMobbs = [];
   List<ColorsModel> colorsList = [
@@ -75,6 +76,7 @@ class MainTabBaseModel extends ChangeNotifier {
         colorDark: Color(0xff3c00b4),
         colorLight: Color(0xff933532),
         colorText: Color(0xff0303e5));
+       
   }
   AudioHandler? audioHandler;
   updateColor(ColorsModel colorsList, int index) {
@@ -116,6 +118,7 @@ class MainTabBaseModel extends ChangeNotifier {
     );
 
     notifyListeners();
+   
   }
 
   void apiCall() async {
